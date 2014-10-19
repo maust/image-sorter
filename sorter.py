@@ -46,7 +46,8 @@ def fulfill_panorama_criterias(path1, path2, pic1_tags, pic2_tags):
         return False
     if str(pic2_tags.get('EXIF ExposureProgram')) != "Manual":
         return False
-    if str(pic1_tags.get('EXIF ExposureTime')) != str(pic2_tags.get('EXIF ExposureTime')):
+    if str(pic1_tags.get('EXIF ExposureTime')) != \
+            str(pic2_tags.get('EXIF ExposureTime')):
         return False
     if str(pic1_tags.get('EXIF ISOSpeedRatings')) != str(pic2_tags.get('EXIF ISOSpeedRatings')):
         return False
@@ -75,7 +76,7 @@ def analyze_pictures(src_folder, dest_folder, pictures):
         if os.path.splitext(pic)[1].lower() == ".cr2":
             cr2s.append(pic)
         if os.path.splitext(pic)[1].lower() in ['.jpg', '.jpeg', '.png', '.mov']:
-            # Get File and ExifTags        
+            # Get File and ExifTags
             curpath = src_folder + pic
             with open(curpath, 'rb') as cf:
                 curtags = exifread.process_file(cf, details=False)
@@ -104,7 +105,7 @@ def analyze_pictures(src_folder, dest_folder, pictures):
                     date_of_previous_panorama = get_date(prevpath, prevtags)
             prevpic = pic
 
-    # If last picture was part of panorama    
+    # If last picture was part of panorama
     if len(curpanorama) > 0:
         if not date_of_previous_panorama == get_date(curpath, curtags):
             count = 0
