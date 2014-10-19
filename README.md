@@ -6,6 +6,8 @@ A python script python script to sort
 * pictures into folders by their date and 
 * recognize pictures which are part of the same panorama to put them into subfolders
 
+## Detailed description
+
 It moves image files from a *source directory* to a *target directory* depending on when the photo was taken, using EXIF data and creation date as a fallback.
 
 Furthermore it tries to recognize image files which are part of a panorama picture, therefore the following criteria are used as of now:
