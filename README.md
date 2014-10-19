@@ -1,4 +1,6 @@
 # image-sorter
+[![Build Status](https://travis-ci.org/maust/image-sorter.svg?branch=master)](https://travis-ci.org/maust/image-sorter)
+[![Coverage Status](https://img.shields.io/coveralls/maust/image-sorter.svg)](https://coveralls.io/r/maust/image-sorter?branch=master)
 
 A python script python script to sort
 * pictures into folders by their date and 
