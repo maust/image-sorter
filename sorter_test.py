@@ -47,6 +47,19 @@ class ExifTests(unittest.TestCase):
         # TODO Fix identification of panoramas with compact cameras
         # self.assertFalse(case)
 
+    def test_similarFolders(self):
+        path = 'test_directories/'
+        self.assertEqual(sorter.similar_folder_exists(path, '2014-01-28'), '2014-01-28 Munich')
+        self.assertEqual(sorter.similar_folder_exists(path, '2014-04-01'), '2014-04-01')
+        self.assertEqual(sorter.similar_folder_exists(path, '2014-01-20'), '2014-01-20')
+
+    def test_getFolder(self):
+        path = 'test_directories/'
+        self.assertEqual(sorter.get_folder(path, '2014-01-28'), 'test_directories/2014-01-28 Munich/')
+        self.assertEqual(sorter.get_folder(path, '2014-04-01'), 'test_directories/2014-04-01/')
+        self.assertEqual(sorter.get_folder(path, '2014-01-20'), 'test_directories/2014-01-20/')
+        self.assertEqual(sorter.get_folder(path, '2014-01-23'), 'test_directories/2014-01-23/')
+
 
 class ScriptTests(unittest.TestCase):
     def test_parse_args(self):

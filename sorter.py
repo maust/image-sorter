@@ -61,6 +61,22 @@ def fulfill_panorama_criterias(path1, path2, pic1_tags, pic2_tags):
     return True
 
 
+def similar_folder_exists(dest_folder, date):
+    for (_, dirs, _) in os.walk(dest_folder):
+        for x in dirs:
+            if date == x[:10]:
+                return x
+    return date
+
+
+def get_folder(dest_folder, date):
+    if not os.path.exists(dest_folder):
+        return dest_folder + date + '/'
+    elif os.path.exists(dest_folder + date + '/'):
+        return dest_folder + date + '/'
+    return dest_folder + similar_folder_exists(dest_folder, date) + '/'
+
+
 def analyze_pictures(src_folder, dest_folder, pictures):
     prevpic = None
     curpath = None
@@ -81,7 +97,8 @@ def analyze_pictures(src_folder, dest_folder, pictures):
             with open(curpath, 'rb') as cf:
                 curtags = exifread.process_file(cf, details=False)
             # Calculate Subfolder
-            filedic[pic] = dest_folder + get_date(curpath, curtags).isoformat() + "/"
+            filedic[pic] = get_folder(dest_folder,
+                                      get_date(curpath, curtags).isoformat())
             if prevpic is not None:
                 prevpath = src_folder + prevpic
                 with open(prevpath, 'rb') as pf:

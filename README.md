@@ -17,6 +17,8 @@ Furthermore it tries to recognize image files which are part of a panorama pictu
 * the aperture doesn't change (EXIF FNumber)
 * the shutter speed doesn't change (EXIF ExposureTime)
 
+If the directory of the date (e.g. '2013-01-11') or a directory with an additional suffix after the date (e.g. '2013-01-11 Berlin') already exists the files will be moved into it.
+
 Limitations:
 * The source folder must not have subfolders.
 * As of now there has to be always a JPG for each CR2 (-> RAW+L ; only RAW not supported yet).
