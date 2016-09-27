@@ -21,7 +21,7 @@ If the directory of the date (e.g. '2013-01-11') or a directory with an addition
 
 Limitations:
 * The source folder must not have subfolders.
-* As of now there has to be always a JPG for each CR2 (-> RAW+L ; only RAW not supported yet).
+* As of now only CR2 files are supported (and movies)
 * The current implementation doesn't identify panoramas taken with compact cameras (as most of them use panorama mode and not manual mode).
 
 The naming of the directories follow a simple naming convention 
@@ -32,22 +32,22 @@ The result looks somewhat like this:
 ```
 ├── 2013-01-11
 │   ├── Panorama 1
-│   │   ├── IMAGE_5019.jpg
-│   │   ├── IMAGE_5020.jpg
-│   │   ├── IMAGE_5021.jpg
-│   │   ├── IMAGE_5022.jpg
-│   │   ├── IMAGE_5023.jpg
-│   │   ├── IMAGE_5024.jpg
-│   │   ├── IMAGE_5025.jpg
-│   │   ├── IMAGE_5026.jpg
+│   │   ├── IMAGE_5019.cr2
+│   │   ├── IMAGE_5020.cr2
+│   │   ├── IMAGE_5021.cr2
+│   │   ├── IMAGE_5022.cr2
+│   │   ├── IMAGE_5023.cr2
+│   │   ├── IMAGE_5024.cr2
+│   │   ├── IMAGE_5025.cr2
+│   │   ├── IMAGE_5026.cr2
 │   ├── Panorama 2
 │   |   ├─ ...
 │   └── ...
 ├── 2014-12-23
-│   ├── IMAGE_9124.jpg
-│   ├── IMAGE_9235.jpg
-│   ├── IMAGE_9236.jpg
-│   └── IMAGE_9237.jpg
+│   ├── IMAGE_9124.cr2
+│   ├── IMAGE_9235.cr2
+│   ├── IMAGE_9236.cr2
+│   └── IMAGE_9237.cr2
 ├── ...
 ```
 

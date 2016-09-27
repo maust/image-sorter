@@ -46,12 +46,10 @@ def fulfill_panorama_criterias(path1, path2, pic1_tags, pic2_tags):
         return False
     if str(pic2_tags.get('EXIF ExposureProgram')) != "Manual":
         return False
-    if str(pic1_tags.get('EXIF ExposureTime')) != \
-            str(pic2_tags.get('EXIF ExposureTime')):
+    if str(pic1_tags.get('EXIF ExposureTime')) != str(pic2_tags.get('EXIF ExposureTime')):
         return False
     if str(pic1_tags.get('EXIF ISOSpeedRatings')) != str(pic2_tags.get('EXIF ISOSpeedRatings')):
         return False
-    print(pic1_tags.get('EXIF ISOSpeedRatings'))
     if str(pic1_tags.get('EXIF FNumber')) != str(pic2_tags.get('EXIF FNumber')):
         return False
     date1 = get_datetime(path1, pic1_tags)
@@ -82,16 +80,13 @@ def analyze_pictures(src_folder, dest_folder, pictures):
     curpath = None
     curtags = None
     filedic = {}
-    cr2s = []
     curpanorama = []
     count = 0
     date_of_previous_panorama = None
 
     for pic in pictures:
         print(pic)
-        if os.path.splitext(pic)[1].lower() == ".cr2":
-            cr2s.append(pic)
-        if os.path.splitext(pic)[1].lower() in ['.jpg', '.jpeg', '.png', '.mov']:
+        if os.path.splitext(pic)[1].lower() in ['.cr2', '.mov']:
             # Get File and ExifTags
             curpath = src_folder + pic
             with open(curpath, 'rb') as cf:
@@ -129,11 +124,6 @@ def analyze_pictures(src_folder, dest_folder, pictures):
         count += 1
         for x in curpanorama:
             filedic[x] = filedic[x] + "Panorama " + str(count) + "/"
-
-    # There has to be a JPG for each CR2 (-> RAW+L ; only RAW not supported yet)
-    for x in cr2s:
-        tmp = x.rsplit('.', 1)[0] + '.JPG'
-        filedic[x] = filedic[tmp]
 
     return filedic
 
