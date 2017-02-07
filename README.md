@@ -21,7 +21,7 @@ If the directory of the date (e.g. '2013-01-11') or a directory with an addition
 
 Limitations:
 * The source folder must not have subfolders.
-* As of now there has to be always a JPG for each CR2 (-> RAW+L ; only RAW not supported yet).
+* As of now there has to be always a JPG for each CR2 (if you want to use RAW-only use branch: feature/raw-only).
 * The current implementation doesn't identify panoramas taken with compact cameras (as most of them use panorama mode and not manual mode).
 
 The naming of the directories follow a simple naming convention 
